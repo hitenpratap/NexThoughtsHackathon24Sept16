@@ -37,5 +37,6 @@ grailsw*
 /wrapper
 .project
 *.idea
+
 out
 web-app/WEB-INF/tld
