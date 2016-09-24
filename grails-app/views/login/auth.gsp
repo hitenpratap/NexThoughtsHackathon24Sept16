@@ -13,7 +13,7 @@
           method="post">
         <div class="col-lg-8">
             <div class="form-group label-floating">
-                <label class="control-label">Email Address</label>
+                <label class="control-label">Username</label>
                 <input type="email" name="j_username" class="form-control">
             </div>
         </div>
