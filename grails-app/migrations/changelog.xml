@@ -104,4 +104,79 @@
                                  initiallyDeferred="false" referencedColumnNames="id" referencedTableName="user"
                                  referencesUniqueColumn="false"/>
     </changeSet>
+
+    <changeSet author="hitenpratap (generated)" id="1474694938196-1">
+        <createTable tableName="team">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="teamPK"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="owner_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="unique_id" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474694938196-2">
+        <createTable tableName="team_member">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="team_memberPK"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="member_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="team_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474694938196-6">
+        <createIndex indexName="FK_frjxgaag9ypwhjyf7y3p5o3of" tableName="team">
+            <column name="owner_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474694938196-7">
+        <createIndex indexName="FK_5g0c914cuohcnat68yxga0pn0" tableName="team_member">
+            <column name="team_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474694938196-8">
+        <createIndex indexName="FK_77dpb74frw747nbny1b6m5hnt" tableName="team_member">
+            <column name="member_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474694938196-3">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="team"
+                                 constraintName="FK_frjxgaag9ypwhjyf7y3p5o3of" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="user"
+                                 referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474694938196-4">
+        <addForeignKeyConstraint baseColumnNames="member_id" baseTableName="team_member"
+                                 constraintName="FK_77dpb74frw747nbny1b6m5hnt" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="user"
+                                 referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474694938196-5">
+        <addForeignKeyConstraint baseColumnNames="team_id" baseTableName="team_member"
+                                 constraintName="FK_5g0c914cuohcnat68yxga0pn0" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="team"
+                                 referencesUniqueColumn="false"/>
+    </changeSet>
 </databaseChangeLog>
