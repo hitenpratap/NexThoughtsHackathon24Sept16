@@ -1,6 +1,7 @@
 package com.issue.tracker.user
 
 import com.issue.tracker.authentication.User
+import com.issue.tracker.label.Label
 import com.issue.tracker.team.Team
 
 class Member extends User {
@@ -10,7 +11,7 @@ class Member extends User {
     String phoneNumber
     String skypeName
 
-    static hasMany = [teams: Team]
+    static hasMany = [teams: Team, labels: Label]
 
     static constraints = {
         firstName blank: false, nullable: false

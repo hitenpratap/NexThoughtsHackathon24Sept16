@@ -1,7 +1,9 @@
 package com.issue.tracker
 
+import com.issue.tracker.Project.Project
 import com.issue.tracker.authentication.Role
 import com.issue.tracker.authentication.UserRole
+import com.issue.tracker.label.Label
 import com.issue.tracker.team.Team
 import com.issue.tracker.user.Admin
 import com.issue.tracker.user.Member
@@ -15,6 +17,7 @@ class BootstrapService {
         createMembers()
         createAdmin()
         createTeam()
+        createProjects()
     }
 
     public void createRoles() {
@@ -24,8 +27,12 @@ class BootstrapService {
         }
     }
 
-    def createLabels() {
-        println "**************creating Labels**************"
+    def createLabels(Project project) {
+        List<String> labels = ['Bug', 'Testing', 'Development', 'Tested', 'Minor', 'Major']
+        labels.each { label ->
+            println "**************creating Labels******${label}********"
+            AppUtil.save(new Label(name: label, project: project))
+        }
     }
 
     def createMembers() {
@@ -36,6 +43,16 @@ class BootstrapService {
                 AppUtil.save(member)
                 UserRole.create(member, Role.findByAuthority("ROLE_MEMBER"))
             }
+        }
+    }
+
+    def createProjects() {
+        List<String> projects = ['P2PLending', 'Fin360', 'PayTM', 'Amazon', 'DigitalIndia', 'SherKhan', 'Flipkart']
+        projects.each { name ->
+            println "************** creating projects ******${name}********"
+            Project project = new Project(name: name)
+            AppUtil.save(project)
+            createLabels(project)
         }
     }
 
