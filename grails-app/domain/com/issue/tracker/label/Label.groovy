@@ -1,6 +1,8 @@
 package com.issue.tracker.label
 
 import com.issue.tracker.LabelColor
+import com.issue.tracker.Project.Project
+import com.issue.tracker.user.Member
 
 class Label {
 
@@ -10,6 +12,7 @@ class Label {
     Date dateCreated
     Date lastUpdated
 
+    static belongsTo = [project:Project]
     static constraints = {
         name nullable: false, blank: false
         uuid nullable: false, blank: false
