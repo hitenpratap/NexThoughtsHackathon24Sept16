@@ -10,7 +10,7 @@
 
 <p class="help-block">Last Updated: <helperTG:renderDateFormat date="${project.lastUpdated}"/></p>
 
-<div class="row">
+<div class="col-lg-12">
     <div class="col-lg-4">
         <a href="javascript:void(0)" class="btn btn-primary btn-block"><i class="fa fa-tasks"></i> Tasks</a>
     </div>
@@ -20,7 +20,8 @@
     </div>
 
     <div class="col-lg-4">
-        <a href="javascript:void(0)" class="btn btn-info btn-block"><i class="fa fa-calendar"></i> Milestones</a>
+        <a href="${createLink(controller: 'milestone', action: 'list', params: [projectId: project.uuid])}"
+           class="btn btn-info btn-block"><i class="fa fa-calendar"></i> Milestones</a>
     </div>
 
     <div class="col-lg-4">

@@ -6,7 +6,9 @@ import grails.validation.Validateable
 @Validateable
 class MilestoneCO {
     String name
+    String description
+    String dueDate
     static constraints = {
-        importFrom Project
+        importFrom Milestone
     }
 }

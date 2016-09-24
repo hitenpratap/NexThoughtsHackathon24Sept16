@@ -13,3 +13,6 @@ function notifyInfo(msg) {
 function notifyWarning(msg) {
     toastr.warning(msg);
 }
+$('.datepicker').datepicker({
+    weekStart: 1
+});

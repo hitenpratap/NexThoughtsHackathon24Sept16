@@ -3,6 +3,8 @@ package com.issue.tracker
 import grails.util.GrailsUtil
 import org.codehaus.groovy.grails.web.context.ServletContextHolder
 
+import java.text.SimpleDateFormat
+
 class AppUtil {
 
     static Boolean save(def object) {
@@ -34,4 +36,11 @@ class AppUtil {
         return ServletContextHolder.getServletContext().getRealPath("/")
     }
 
+    public static def customDateFormat(String format, String dateInString) {
+        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        String convertCurrentDate = dateInString;
+        Date date = new Date();
+        date = sdf.parse(convertCurrentDate);
+        return date
+    }
 }

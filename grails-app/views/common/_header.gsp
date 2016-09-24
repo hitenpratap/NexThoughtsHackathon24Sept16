@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="#" class="navbar-brand">Brand</a>
+            <a href="#" class="navbar-brand">Tracko</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
