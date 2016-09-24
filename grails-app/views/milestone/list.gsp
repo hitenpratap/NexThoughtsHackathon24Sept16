@@ -7,7 +7,7 @@
 
 <body>
 <h2>Milestone List
-    <a href="${createLink(controller: 'milestone', action: 'create')}"
+    <a href="${createLink(controller: 'milestone', action: 'create', params: [projectId: project.uuid])}"
        class="pull-right btn btn-primary">Create Milestone</a>
 </h2>
 <table class="table">

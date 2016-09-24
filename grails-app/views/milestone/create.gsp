@@ -13,7 +13,8 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <form method="post" action="${createLink(controller: 'milestone', action: 'save')}">
+                <form method="post"
+                      action="${createLink(controller: 'milestone', action: 'save', params: [projectId: project.uuid])}">
                     <div class="col-lg-8">
                         <div class="form-group label-floating col-lg-12 ${hasErrors(bean: milestoneCO, field: "name", 'has-error')}">
                             <label class="control-label">Title</label>
