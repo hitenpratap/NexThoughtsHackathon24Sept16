@@ -24,10 +24,14 @@
     <g:layoutHead/>
 </head>
 
-<body style="background-color: white">
+<body class="index-page">
 <g:render template="/common/header"/>
 <g:render template="/common/renderErrors"/>
-<g:layoutBody/>
+<div class="wrapper">
+    <g:render template="/common/subHeader"/>
+    <g:layoutBody/>
+</div>
+
 <div class="footer" role="contentinfo"></div>
 
 <div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
