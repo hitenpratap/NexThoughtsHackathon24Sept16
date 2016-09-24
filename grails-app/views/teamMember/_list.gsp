@@ -19,7 +19,8 @@
                     class="fa fa-eye"></i> View
             </a>&nbsp;|&nbsp;
                 <a href="javascript:void(0)"><i class="fa fa-pencil-square-o"></i> Edit</a>&nbsp;|&nbsp;
-                <a href="javascript:void(0)"><i class="fa fa-trash" aria-hidden="true"></i>
+                <a href="javascript:void(0)" onclick="removeTeamMember('${teamMember.uniqueId}')"><i class="fa fa-trash"
+                                                                                                     aria-hidden="true"></i>
                     Delete</a></td>
         </tr>
     </g:each>

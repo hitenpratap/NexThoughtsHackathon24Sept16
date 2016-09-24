@@ -14,6 +14,7 @@ class TeamController {
         Member member = springSecurityService.currentUser as Member
         List<Team> teamList = Team.createCriteria().list {
             eq('owner', member)
+            eq('objectStatus', Enums.ObjectStatus.RECENT)
         }
         [teamList: teamList]
     }
@@ -44,6 +45,7 @@ class TeamController {
         if (team) {
             List<TeamMember> teamMemberList = TeamMember.createCriteria().list {
                 eq('team', team)
+                eq('objectStatus', Enums.ObjectStatus.RECENT)
             }
             render(view: '/team/view', model: [team: team, teamMemberList: teamMemberList])
         } else {

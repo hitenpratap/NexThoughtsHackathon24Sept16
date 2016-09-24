@@ -1,6 +1,7 @@
 package com.issue.tracker.milestone
 
 import com.issue.tracker.AppUtil
+import com.issue.tracker.Enums
 import com.issue.tracker.Project.Project
 
 class Milestone {
@@ -10,8 +11,10 @@ class Milestone {
     Date dueDate
     Date dateCreated
     Date lastUpdated
+    Enums.ObjectStatus objectStatus = Enums.ObjectStatus.RECENT
 
     static belongsTo = [project: Project]
+
     static constraints = {
         name nullable: false, blank: false
         description nullable: true, blank: true
