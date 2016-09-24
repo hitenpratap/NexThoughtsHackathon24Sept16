@@ -1,6 +1,7 @@
 package com.issue.tracker
 
 import com.issue.tracker.Project.Project
+import com.issue.tracker.Project.ProjectMember
 import com.issue.tracker.authentication.Role
 import com.issue.tracker.authentication.UserRole
 import com.issue.tracker.label.Label
@@ -11,7 +12,6 @@ import com.issue.tracker.team.TeamMember
 import com.issue.tracker.user.Admin
 import com.issue.tracker.user.Member
 import grails.transaction.Transactional
-import org.apache.commons.lang.RandomStringUtils
 
 @Transactional
 class BootstrapService {
@@ -20,6 +20,7 @@ class BootstrapService {
         createRoles()
         createMembers()
         createAdmin()
+        createProjectMembers()
     }
 
     public void createRoles() {
@@ -54,6 +55,20 @@ class BootstrapService {
                 UserRole.create(member, Role.findByAuthority("ROLE_MEMBER"))
                 createProjects(member)
                 createTeam(member)
+            }
+        }
+    }
+
+    def createProjectMembers(){
+        if(ProjectMember.count<1){
+            Project.list().each {project->
+                [1,2,3,4,5].each {id->
+                    Member member = Member.get(id as Long)
+                    ProjectMember projectMember = new ProjectMember(member: member,project: project,accessLevel: Enums.MemberAccessLevel.READ)
+                    AppUtil.save(projectMember)
+                    log.info("***************   Creating Project Member====>>>>>>${member.firstName}  -> ${projectMember.uuid}")
+
+                }
             }
         }
     }

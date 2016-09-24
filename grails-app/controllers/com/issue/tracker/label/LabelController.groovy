@@ -8,8 +8,8 @@ import grails.plugin.springsecurity.annotation.Secured
 class LabelController {
 
     def index() {
-        Project project = Project.get(1)
-        List<Label> labelList = Label.list([order: 'desc'])
+        Project project = Project.findByUuid(params.projectId as String)
+        List<Label> labelList = Label.list([order: 'desc',sort: 'id'])
         render(view: 'index', model: [labelList: labelList, project: project])
     }
 
@@ -30,6 +30,7 @@ class LabelController {
     }
 
     def updateLabel() {
+        println "================>>> ${params.uuid}"
         Label label = Label.findByUuid(params.uuid as String)
         label.name = params.name
         AppUtil.save(label)
