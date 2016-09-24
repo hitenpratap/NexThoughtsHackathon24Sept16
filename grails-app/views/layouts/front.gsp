@@ -27,11 +27,11 @@
 
 <body class="index-page">
 <g:render template="/common/header"/>
-<g:render template="/common/renderErrors"/>
 <div class="wrapper">
     <g:render template="/common/subHeader"/>
     <div class="main main-raised">
         <div class="container">
+            <g:render template="/common/renderErrors"/>
             <g:layoutBody/>
         </div>
     </div>
