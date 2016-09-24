@@ -13,14 +13,14 @@
           method="post">
         <div class="col-lg-8">
             <div class="form-group label-floating">
-                <label class="control-label">With Floating Label</label>
+                <label class="control-label">Username</label>
                 <input type="email" name="j_username" class="form-control">
             </div>
         </div>
 
         <div class="col-lg-8">
             <div class="form-group label-floating">
-                <label class="control-label">With Floating Label</label>
+                <label class="control-label">Password</label>
                 <input type="password" name="j_password" class="form-control">
             </div>
         </div>
