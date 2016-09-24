@@ -37,4 +37,19 @@ class Task {
         milestone nullable: true
     }
 
+    static transients = ['assigneeName']
+
+    Task() {}
+
+    Task(TaskCO taskCO) {
+        this.title = taskCO.title
+        this.description = taskCO.description
+        this.assignee = taskCO.assignee ? ProjectMember.findByUuid(taskCO.assignee) : null
+        this.project = Project.findByUuid(taskCO.projectId)
+    }
+
+    String getAssigneeName() {
+        assignee ? assignee.memberName : null
+    }
+
 }
