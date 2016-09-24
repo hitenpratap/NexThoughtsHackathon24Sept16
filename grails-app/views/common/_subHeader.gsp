@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="brand" style="margin-top: 12vh">
-                    <h1>Issue Tracker</h1>
+                    <h1>Tracko</h1>
 
                     <h3>A Badass Issue Tracker</h3>
                 </div>
