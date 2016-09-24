@@ -22,17 +22,25 @@
             <thead>
             <tr>
                 <th>#</th>
+                <th>Dated</th>
                 <th>Name</th>
+                <th>Issue(s)</th>
+                <th>Member(s)</th>
+                <th>Team(s)</th>
                 <th>Actions</th>
             </tr>
             </thead>
             <tbody>
-            <g:each in="${projectList}" var="project" status="${i}">
+            <g:each in="${projectList}" var="project" status="i">
 
                 <tr>
                     <td>${i + 1}</td>
+                    <td>${project.dateCreated.format("MMM dd, yyyy")}</td>
                     <td>${project.name}</td>
-                    <td><a href="${createLink(controller: 'project', action: 'view')}"><i
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td><a href="${createLink(controller: 'project', action: 'view', params: [projectId: project.uuid])}"><i
                             class="fa fa-eye"></i> View</a>&nbsp;|&nbsp;<a
                             href="${createLink(controller: 'project', action: 'edit')}"><i
                                 class="fa fa-pencil-square-o"></i> Edit</a>&nbsp;|&nbsp;

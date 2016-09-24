@@ -22,7 +22,15 @@ class ProjectController {
         redirect action: 'index'
     }
 
-    def view = {}
+    def view = {
+        Project project = Project.findByUuid(params.projectId)
+        if (project) {
+            render(view: '/project/view', model: [project: project])
+        } else {
+            flash.error = "Something went wrong. Please try again."
+            redirect(action: 'index')
+        }
+    }
 
     def delete = {}
 }
