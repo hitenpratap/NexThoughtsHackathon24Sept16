@@ -59,6 +59,8 @@
             if (data.result == "SUCCESS") {
                 loadTeamMemberTable(data.teamId);
                 notifySuccess(data.successMsg);
+                $("#addTeamMember").find("input").val("");
+                $("#addTeamMember").find("select").val("");
             } else {
                 notifyError(data.errorMsg);
             }

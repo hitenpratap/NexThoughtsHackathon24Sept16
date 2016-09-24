@@ -1,7 +1,6 @@
 package com.issue.tracker.user
 
 import com.issue.tracker.authentication.User
-import com.issue.tracker.label.Label
 import com.issue.tracker.team.Team
 
 class Member extends User {
@@ -29,6 +28,12 @@ class Member extends User {
         this.phoneNumber = tokens[4]
         this.skypeName = tokens[5]
         this.password = "fin1928tech"
+    }
+
+    static transients = ['fullName']
+
+    String getFullName() {
+        return firstName + " " + lastName
     }
 
 }

@@ -13,6 +13,7 @@
 //= require nouislider.min.js
 //= require bootstrap-datepicker.js
 //= require material-kit.js
+//= require custom.js
 //= require_self
 
 if (typeof jQuery !== 'undefined') {

@@ -244,4 +244,26 @@
         </addColumn>
     </changeSet>
 
+    <changeSet author="hitenpratap (generated)" id="1474710710521-1">
+        <addColumn tableName="team_member">
+            <column name="date_created" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474710710521-2">
+        <addColumn tableName="team_member">
+            <column name="last_updated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474710710521-3">
+        <addColumn tableName="team_member">
+            <column name="unique_id" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>

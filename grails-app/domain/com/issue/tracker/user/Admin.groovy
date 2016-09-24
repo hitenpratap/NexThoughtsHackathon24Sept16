@@ -11,4 +11,10 @@ class Admin extends User {
         this.password = "fin1928tech"
     }
 
+    static transients = ['fullName']
+
+    String getFullName() {
+        return username
+    }
+
 }

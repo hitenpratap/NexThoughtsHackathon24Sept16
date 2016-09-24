@@ -24,7 +24,8 @@
             <td>${i + 1}</td>
             <td>${team.dateCreated.format("MMM dd, yyyy")}</td>
             <td>${team.name}</td>
-            <td><a href="${createLink(controller: 'team', action: 'view')}"><i class="fa fa-eye"></i> View
+            <td><a href="${createLink(controller: 'team', action: 'view', params: [teamId: team?.uniqueId])}"><i
+                    class="fa fa-eye"></i> View
             </a>&nbsp;|&nbsp;
                 <a href="javascript:void(0)"><i class="fa fa-pencil-square-o"></i> Edit</a>&nbsp;|&nbsp;
                 <a href="javascript:void(0)"><i class="fa fa-trash" aria-hidden="true"></i>

@@ -22,4 +22,6 @@ class Team {
         this.owner = member
     }
 
+    String getMemberName() {}
+
 }

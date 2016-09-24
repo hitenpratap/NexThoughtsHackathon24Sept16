@@ -42,6 +42,10 @@ class TeamController {
     def view = {
         Team team = Team.findByUniqueId(params.teamId)
         if (team) {
+            List<TeamMember> teamMemberList = TeamMember.createCriteria().list {
+                eq('team', team)
+            }
+            render(view: '/team/view', model: [team: team, teamMemberList: teamMemberList])
         } else {
             flash.error = "Something went wrong. Please try again."
             redirect(action: 'list')
