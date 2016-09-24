@@ -37,9 +37,9 @@
     </div>
 </div>
 
-<div class="footer" role="contentinfo"></div>
-
 <div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
+<g:render template="/common/footer"/>
+
 <asset:javascript src="application.js"/>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.2/toastr.min.js"></script>
 </body>
