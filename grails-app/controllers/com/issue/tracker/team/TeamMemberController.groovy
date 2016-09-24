@@ -39,9 +39,25 @@ class TeamMemberController {
         if (team) {
             List<TeamMember> teamMemberList = TeamMember.createCriteria().list {
                 eq('team', team)
+                eq('objectStatus', Enums.ObjectStatus.RECENT)
             }
             result.result = "SUCCESS"
             result.memberTableData = g.render(template: '/teamMember/list', model: [teamMemberList: teamMemberList])
+        } else {
+            result.errorMsg = "Something went wrong. Please try again."
+        }
+        render result as JSON
+    }
+
+    def ax_removeTeamMember = {
+        def result = [:]
+        TeamMember teamMember = TeamMember.findByUniqueId(params.teamMemberId)
+        if (teamMember) {
+            result.teamId = "${teamMember.team.uniqueId}"
+            teamMember.objectStatus = Enums.ObjectStatus.OLD
+            AppUtil.save(teamMember)
+            result.result = "SUCCESS"
+            result.successMsg = "Member has been removed from team successfully."
         } else {
             result.errorMsg = "Something went wrong. Please try again."
         }

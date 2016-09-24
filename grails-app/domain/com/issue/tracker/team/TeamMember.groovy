@@ -11,6 +11,7 @@ class TeamMember {
     Date dateCreated
     Date lastUpdated
     String uniqueId = UUID.randomUUID().toString()
+    Enums.ObjectStatus objectStatus = Enums.ObjectStatus.RECENT
 
     static constraints = {
         member nullable: false

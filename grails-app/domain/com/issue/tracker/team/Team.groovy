@@ -1,5 +1,6 @@
 package com.issue.tracker.team
 
+import com.issue.tracker.Enums
 import com.issue.tracker.user.Member
 
 class Team {
@@ -8,6 +9,7 @@ class Team {
     Date dateCreated
     Date lastUpdated
     String uniqueId = UUID.randomUUID().toString()
+    Enums.ObjectStatus objectStatus = Enums.ObjectStatus.RECENT
 
     static belongsTo = [owner: Member]
 

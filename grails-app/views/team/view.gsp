@@ -82,6 +82,23 @@
             }
         });
     }
+
+    function removeTeamMember(teamMemberId) {
+        if (confirm("Are you sure?")) {
+            $.ajax({
+                type: "POST",
+                url: "${createLink(controller: 'teamMember',action: 'ax_removeTeamMember')}",
+                data: {teamMemberId: teamMemberId}
+            }).done(function (data) {
+                if (data.result == "SUCCESS") {
+                    notifySuccess(data.successMsg);
+                    loadTeamMemberTable(data.teamId);
+                } else {
+                    notifyError(data.errorMsg);
+                }
+            });
+        }
+    }
 </script>
 </body>
 </html>
