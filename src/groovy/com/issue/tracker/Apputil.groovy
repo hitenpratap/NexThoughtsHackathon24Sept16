@@ -23,7 +23,7 @@ class AppUtil {
     public static String getStaticResourcesDirPath() {
         String path = '';
         if (GrailsUtil.developmentEnv) {
-            path = ServletContextHolder.getServletContext().getRealPath("/") + "ScrapyFiles"
+            path = ServletContextHolder.getServletContext().getRealPath("/") + "test-files"
         } else {
             path = '/home/ubuntu/ScrapyFiles'
         }
