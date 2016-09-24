@@ -303,4 +303,40 @@
         </addColumn>
     </changeSet>
 
+    <changeSet author="hitenpratap (generated)" id="1474714830463-1">
+        <addColumn tableName="label">
+            <column name="object_status" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474714830463-2">
+        <addColumn tableName="milestone">
+            <column name="object_status" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474714830463-3">
+        <addColumn tableName="project">
+            <column name="object_status" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474714830463-4">
+        <addColumn tableName="team">
+            <column name="object_status" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474714830463-5">
+        <addColumn tableName="team_member">
+            <column name="object_status" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
 </databaseChangeLog>
