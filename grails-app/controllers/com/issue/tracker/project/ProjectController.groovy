@@ -2,22 +2,28 @@ package com.issue.tracker.project
 
 import com.issue.tracker.AppUtil
 import com.issue.tracker.Project.Project
+import com.issue.tracker.user.Member
 import grails.plugin.springsecurity.annotation.Secured
 
 @Secured(["ROLE_MEMBER"])
 class ProjectController {
 
+    def springSecurityService
+
     def index = {
-        List<Project> projectList = Project.list()
+        Member member = springSecurityService.currentUser as Member
+        List<Project> projectList = Project.createCriteria().list {
+            eq('owner', member)
+            order('dateCreated', ORDER_ASCENDING)
+        }
         render view: 'index', model: [projectList: projectList]
     }
 
-    def create = {
-        render view: 'create'
-    }
+    def create = {}
 
     def save = {
-        Project project = new Project(name: params.name)
+        Member member = springSecurityService.currentUser as Member
+        Project project = new Project(name: params.name, owner: member)
         AppUtil.save(project)
         redirect action: 'index'
     }

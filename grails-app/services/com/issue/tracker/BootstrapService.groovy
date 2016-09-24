@@ -18,7 +18,6 @@ class BootstrapService {
         createRoles()
         createMembers()
         createAdmin()
-        createProjects()
     }
 
     public void createRoles() {
@@ -29,7 +28,7 @@ class BootstrapService {
     }
 
     def createLabels(Project project) {
-        if(Label.count<1){
+        if (Label.count < 1) {
             List<String> labels = ['Bug', 'Testing', 'Development', 'Tested', 'Minor', 'Major']
             labels.each { label ->
                 println "**************creating Labels******${label}********"
@@ -47,16 +46,17 @@ class BootstrapService {
                 AppUtil.save(member)
                 UserRole.create(member, Role.findByAuthority("ROLE_MEMBER"))
                 createTeam(member)
+                createProjects(member)
             }
         }
     }
 
-    def createProjects() {
-        if(Project.count<1){
+    def createProjects(Member member) {
+        if (Project.count < 1) {
             List<String> projects = ['P2PLending', 'Fin360', 'PayTM', 'Amazon', 'DigitalIndia', 'SherKhan', 'Flipkart']
             projects.each { name ->
                 println "************** creating projects ******${name}********"
-                Project project = new Project(name: name)
+                Project project = new Project(name: name, member: member)
                 AppUtil.save(project)
                 createLabels(project)
             }

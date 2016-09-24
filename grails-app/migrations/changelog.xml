@@ -611,4 +611,23 @@
                                  referencesUniqueColumn="false"/>
     </changeSet>
 
+    <changeSet author="hitenpratap (generated)" id="1474729461488-1">
+        <addColumn tableName="project">
+            <column name="owner_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474729461488-3">
+        <createIndex indexName="FK_oe92jxold6k7tbv6w0hl89c5c" tableName="project">
+            <column name="owner_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474729461488-2">
+        <addForeignKeyConstraint baseColumnNames="owner_id" baseTableName="project"
+                                 constraintName="FK_oe92jxold6k7tbv6w0hl89c5c" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="user"
+                                 referencesUniqueColumn="false"/>
+    </changeSet>
+
 </databaseChangeLog>

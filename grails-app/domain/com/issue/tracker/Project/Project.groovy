@@ -4,6 +4,7 @@ import com.issue.tracker.Enums
 import com.issue.tracker.label.Label
 import com.issue.tracker.milestone.Milestone
 import com.issue.tracker.task.Task
+import com.issue.tracker.user.Member
 
 class Project {
 
@@ -12,6 +13,8 @@ class Project {
     Date dateCreated
     Date lastUpdated
     Enums.ObjectStatus objectStatus = Enums.ObjectStatus.RECENT
+
+    static belongsTo = [owner: Member]
 
     static hasMany = [labels: Label, tasks: Task, milestones: Milestone, contributers: ProjectMember, teams: ProjectTeam]
 
