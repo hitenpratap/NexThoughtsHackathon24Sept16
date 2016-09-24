@@ -125,10 +125,15 @@ grails.plugin.databasemigration.changelogFileName = 'changelog.xml'
 grails.plugin.databasemigration.updateOnStart = true
 grails.plugin.databasemigration.updateOnStartFileNames = ['changelog.xml']
 
+
+grails.plugin.springsecurity.auth.loginFormUrl = '/authentication/login'
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/authentication/resolveTargetUrl'
+grails.plugin.springsecurity.logout.afterLogoutUrl = "/"
+grails.plugin.springsecurity.logout.postOnly = false
 // Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.userLookup.userDomainClassName = 'User'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'UserRole'
-grails.plugin.springsecurity.authority.className = 'Role'
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.issue.tracker.authentication.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.issue.tracker.authentication.UserRole'
+grails.plugin.springsecurity.authority.className = 'com.issue.tracker.authentication.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         '/'              : ['permitAll'],
         '/index'         : ['permitAll'],
