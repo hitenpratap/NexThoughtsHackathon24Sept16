@@ -11,7 +11,7 @@ class Member extends User {
     String phoneNumber
     String skypeName
 
-    static hasMany = [teams: Team, labels: Label]
+    static hasMany = [teams: Team]
 
     static constraints = {
         firstName blank: false, nullable: false
