@@ -5,6 +5,8 @@ import com.issue.tracker.authentication.Role
 import com.issue.tracker.authentication.UserRole
 import com.issue.tracker.label.Label
 import com.issue.tracker.team.Team
+import com.issue.tracker.team.TeamCO
+import com.issue.tracker.team.TeamMember
 import com.issue.tracker.user.Admin
 import com.issue.tracker.user.Member
 import grails.transaction.Transactional
@@ -16,7 +18,6 @@ class BootstrapService {
         createRoles()
         createMembers()
         createAdmin()
-        createTeam()
         createProjects()
     }
 
@@ -42,6 +43,7 @@ class BootstrapService {
                 Member member = new Member(tokens)
                 AppUtil.save(member)
                 UserRole.create(member, Role.findByAuthority("ROLE_MEMBER"))
+                createTeam(member)
             }
         }
     }
@@ -66,13 +68,14 @@ class BootstrapService {
         }
     }
 
-    def createTeam() {
-        if (Team.count < 1) {
-            new File("${AppUtil.staticResourcesDirPath}/Team_Data.csv").eachCsvLine { tokens ->
-                log.info("***************   Creating Team with name  ====>>>>>>  ${tokens[0]}")
-                Team team = new Team(tokens)
-                AppUtil.save(team)
-            }
+    def createTeam(Member member) {
+        new File("${AppUtil.staticResourcesDirPath}/Team_Data.csv").eachCsvLine { tokens ->
+            log.info("***************   Creating Team with name  ====>>>>>>  ${tokens[0]}")
+            TeamCO teamCO = new TeamCO(name: tokens[0])
+            Team team = new Team(teamCO, member)
+            AppUtil.save(team)
+            TeamMember teamMember = new TeamMember(team, Enums.MemberAccessLevel.ADMIN, member)
+            AppUtil.save(teamMember)
         }
     }
 }

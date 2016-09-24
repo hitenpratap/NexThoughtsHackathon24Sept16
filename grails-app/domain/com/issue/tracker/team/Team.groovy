@@ -1,7 +1,6 @@
 package com.issue.tracker.team
 
 import com.issue.tracker.user.Member
-import org.apache.commons.lang.RandomStringUtils
 
 class Team {
 
@@ -17,12 +16,6 @@ class Team {
     }
 
     Team() {}
-
-    Team(def tokens) {
-        this.name = tokens[0]
-        Long memberId = Long.parseLong(RandomStringUtils.randomNumeric(1))
-        this.owner = Member.get(memberId == 0 ? 1 : memberId)
-    }
 
     Team(TeamCO teamCO, Member member) {
         this.name = teamCO.name
