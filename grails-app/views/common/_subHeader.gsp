@@ -5,7 +5,7 @@
                 <div class="brand" style="margin-top: 12vh">
                     <h1>Issue Tracker</h1>
 
-                    <h3>A Badass Bootstrap UI Kit based on Material Design.</h3>
+                    <h3>A Badass Issue Tracker</h3>
                 </div>
             </div>
         </div>
