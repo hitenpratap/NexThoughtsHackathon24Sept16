@@ -33,7 +33,6 @@ class BootstrapService {
             labels.each { label ->
                 println "**************creating Labels******${label}********"
                 AppUtil.save(new Label(name: label, project: project))
-                project.addToLabels(label)
             }
         }
     }

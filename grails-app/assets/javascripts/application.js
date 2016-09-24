@@ -36,5 +36,4 @@ $(document).ready(function () {
 
         $(window).on('scroll', materialKitDemo.checkScrollForParallax);
     }
-
 });
