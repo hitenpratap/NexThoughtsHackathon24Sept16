@@ -39,4 +39,13 @@ class TeamController {
         }
     }
 
+    def view = {
+        Team team = Team.findByUniqueId(params.teamId)
+        if (team) {
+        } else {
+            flash.error = "Something went wrong. Please try again."
+            redirect(action: 'list')
+        }
+    }
+
 }

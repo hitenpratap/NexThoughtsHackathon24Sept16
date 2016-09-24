@@ -29,7 +29,12 @@
 <g:render template="/common/renderErrors"/>
 <div class="wrapper">
     <g:render template="/common/subHeader"/>
-    <g:layoutBody/>
+    <div class="main main-raised">
+        <div class="container">
+            <g:layoutBody/>
+        </div>
+    </div>
+</div>
 </div>
 
 <div class="footer" role="contentinfo"></div>
