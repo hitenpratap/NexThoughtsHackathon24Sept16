@@ -17,6 +17,9 @@ class User implements Serializable {
     boolean accountExpired
     boolean accountLocked
     boolean passwordExpired
+    Date dateCreated
+    Date lastUpdated
+    String uniqueId = UUID.randomUUID().toString()
 
     User(String username, String password) {
         this()
