@@ -18,12 +18,15 @@
           rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all"
           rel="stylesheet" type="text/css"><!--- fonts for slider on the index page -->
-<asset:stylesheet src="application.css"/>
-<g:layoutHead/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css">
+    <asset:stylesheet src="application.css"/>
+    <g:layoutHead/>
 </head>
 
 <body style="background-color: white">
 <g:render template="/common/header"/>
+<g:render template="/common/renderErrors"/>
 <g:layoutBody/>
 <div class="footer" role="contentinfo"></div>
 
