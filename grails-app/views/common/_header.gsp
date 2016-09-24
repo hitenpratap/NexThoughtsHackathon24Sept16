@@ -20,6 +20,10 @@
                     <li><a href="${createLink(controller: 'team', action: 'list')}"><i class="fa fa-users"></i> Teams
                     </a>
                     </li>
+                    <li><a href="${createLink(controller: 'project', action: 'index')}"><i
+                            class="fa fa-code"></i> Projects
+                    </a>
+                    </li>
                 </sec:ifAllGranted>
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown <b class="caret"></b></a>

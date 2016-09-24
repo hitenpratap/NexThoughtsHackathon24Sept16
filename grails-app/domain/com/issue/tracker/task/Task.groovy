@@ -18,6 +18,7 @@ class Task {
     Document document
     Label label
     Milestone milestone
+    Enums.TaskStatus status = Enums.TaskStatus.OPEN
 
     static belongsTo = [project: Project]
 
@@ -30,7 +31,7 @@ class Task {
     static constraints = {
         title blank: false, nullable: false
         description blank: true, nullable: true
-        assignee nullable: false
+        assignee nullable: true
         document nullable: true
         label nullable: true
         milestone nullable: true

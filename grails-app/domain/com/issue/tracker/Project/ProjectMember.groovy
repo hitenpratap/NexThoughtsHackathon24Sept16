@@ -10,11 +10,15 @@ class ProjectMember {
     Date dateCreated
     Date lastUpdated
     Enums.ObjectStatus objectStatus = Enums.ObjectStatus.RECENT
+    Enums.MemberAccessLevel accessLevel
+    ProjectTeam team
 
     static belongsTo = [project: Project]
 
     static constraints = {
         member nullable: false
+        accessLevel nullable: false
+        team nullable: true
     }
 
 }

@@ -7,61 +7,43 @@
 </head>
 
 <body>
-<div class="col-lg-8">
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">Projects</h3>
-        </div>
+<h2>Project List
+    <a href="${createLink(controller: 'project', action: 'create')}"
+       class="pull-right btn btn-primary">Create Project</a>
+</h2>
 
-        <div class="panel-body" id="teamMemberList">
-            <table class="table" style="height: 200px;overflow-y: auto;display: inline-block;">
-                <thead>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Projects</h3>
+    </div>
+
+    <div class="panel-body">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <g:each in="${projectList}" var="project" status="${i}">
+
                 <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    %{--<th>Team Name</th>--}%
-                    %{--<th>Total Members</th>--}%
-                    <th>Actions</th>
+                    <td>${i + 1}</td>
+                    <td>${project.name}</td>
+                    <td><a href="${createLink(controller: 'project', action: 'view')}"><i
+                            class="fa fa-eye"></i> View</a>&nbsp;|&nbsp;<a
+                            href="${createLink(controller: 'project', action: 'edit')}"><i
+                                class="fa fa-pencil-square-o"></i> Edit</a>&nbsp;|&nbsp;
+                        <a href="${createLink(controller: 'project', action: 'delete')}"><i
+                                class="fa fa-trash"></i> Delete</a>
+                    </td>
                 </tr>
-                </thead>
-                <tbody>
-                <g:each in="${projectList}" var="project" status="${i}">
-
-                    <tr>
-                        <td>${i + 1}</td>
-                        <td>${project.name}</td>
-                        %{--<td>${project?.team?.name}</td>--}%
-                        %{--<td>${project?.team?.count}</td>--}%
-                        <td>
-                            <button type="button" title="Edit" class="btn btn-success btn-simple btn-xs">
-                                <i class="fa fa-edit"></i>
-                                <a href="${createLink(controller: 'project', action: 'edit')}">Edit</a>
-                            </button>
-                            <button type="button" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                <i class="fa fa-times"></i>
-                                <a href="${createLink(controller: 'project', action: 'deleteLabel')}">Delete</a>
-                            </button>
-                        </td>
-                    </tr>
-                </g:each>
-                </tbody>
-            </table>
-        </div>
+            </g:each>
+            </tbody>
+        </table>
     </div>
-</div>
-<div class="col-lg-4">
-    <div class="col-lg-7" style="margin-top: 150px;">
-        click here !
-        <button type="button" title="" class="btn btn-success btn-simple btn-xs">
-            <a href="${createLink(controller: 'project', action: 'create')}"><h3 style="color: red">Create New Project</h3></a>
-
-        </button>
-    </div>
-</div>
-
-</div>
-
-
 </div>
 </body>
 </html>
