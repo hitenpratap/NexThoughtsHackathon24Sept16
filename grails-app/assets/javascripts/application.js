@@ -7,6 +7,12 @@
 //
 //= require jquery
 //= require_tree .
+//= require jquery.min.js
+//= require bootstrap.min.js
+//= require material.min.js
+//= require nouislider.min.js
+//= require bootstrap-datepicker.js
+//= require material-kit.js
 //= require_self
 
 if (typeof jQuery !== 'undefined') {
