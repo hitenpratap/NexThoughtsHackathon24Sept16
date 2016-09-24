@@ -12,6 +12,7 @@ class AuthenticationController {
     }
 
     def resolveTargetUrl = {
+        log.info("**************************************")
         def roles = (springSecurityService.currentUser)?.authorities
         Role memberRole = Role.findByAuthority("ROLE_MEMBER")
         Role adminRole = Role.findByAuthority("ROLE_ADMIN")

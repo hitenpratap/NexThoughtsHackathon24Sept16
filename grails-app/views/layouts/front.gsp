@@ -22,9 +22,8 @@
 <g:layoutHead/>
 </head>
 
-<body>
-<div id="grailsLogo" role="banner"><a href="http://grails.org"><asset:image src="grails_logo.png" alt="Grails"/></a>
-</div>
+<body style="background-color: white">
+<g:render template="/common/header"/>
 <g:layoutBody/>
 <div class="footer" role="contentinfo"></div>
 
