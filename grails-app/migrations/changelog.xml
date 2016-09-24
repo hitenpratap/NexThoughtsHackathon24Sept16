@@ -243,5 +243,42 @@
             </column>
         </addColumn>
     </changeSet>
+    <changeSet author="ali (generated)" id="1474710411490-1">
+        <createTable tableName="milestone">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="milestonePK"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="project_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uuid" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ali (generated)" id="1474710411490-2">
+        <addForeignKeyConstraint baseColumnNames="project_id" baseTableName="label"
+                                 constraintName="FK_bnpy5d62rffq3ja3dutdl38pe" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="project"
+                                 referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="ali (generated)" id="1474710411490-3">
+        <addForeignKeyConstraint baseColumnNames="project_id" baseTableName="milestone"
+                                 constraintName="FK_61cl3my2j840nd5ac2gvsowu" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="project"
+                                 referencesUniqueColumn="false"/>
+    </changeSet>
 
 </databaseChangeLog>
