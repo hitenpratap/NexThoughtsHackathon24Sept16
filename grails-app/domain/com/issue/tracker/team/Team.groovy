@@ -24,4 +24,9 @@ class Team {
         this.owner = Member.get(memberId == 0 ? 1 : memberId)
     }
 
+    Team(TeamCO teamCO, Member member) {
+        this.name = teamCO.name
+        this.owner = member
+    }
+
 }
