@@ -28,10 +28,12 @@ class BootstrapService {
     }
 
     def createLabels(Project project) {
-        List<String> labels = ['Bug', 'Testing', 'Development', 'Tested', 'Minor', 'Major']
-        labels.each { label ->
-            println "**************creating Labels******${label}********"
-            AppUtil.save(new Label(name: label, project: project))
+        if(Label.count<1){
+            List<String> labels = ['Bug', 'Testing', 'Development', 'Tested', 'Minor', 'Major']
+            labels.each { label ->
+                println "**************creating Labels******${label}********"
+                AppUtil.save(new Label(name: label, project: project))
+            }
         }
     }
 
@@ -47,12 +49,14 @@ class BootstrapService {
     }
 
     def createProjects() {
-        List<String> projects = ['P2PLending', 'Fin360', 'PayTM', 'Amazon', 'DigitalIndia', 'SherKhan', 'Flipkart']
-        projects.each { name ->
-            println "************** creating projects ******${name}********"
-            Project project = new Project(name: name)
-            AppUtil.save(project)
-            createLabels(project)
+        if(Project.count<1){
+            List<String> projects = ['P2PLending', 'Fin360', 'PayTM', 'Amazon', 'DigitalIndia', 'SherKhan', 'Flipkart']
+            projects.each { name ->
+                println "************** creating projects ******${name}********"
+                Project project = new Project(name: name)
+                AppUtil.save(project)
+                createLabels(project)
+            }
         }
     }
 
