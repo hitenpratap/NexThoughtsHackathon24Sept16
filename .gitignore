@@ -40,3 +40,5 @@ grailsw*
 
 out
 web-app/WEB-INF/tld
+
+*.iml
