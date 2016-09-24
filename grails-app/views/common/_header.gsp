@@ -15,7 +15,6 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#">Link</a></li>
                 <sec:ifAllGranted roles="ROLE_MEMBER">
                     <li><a href="${createLink(controller: 'team', action: 'list')}"><i class="fa fa-users"></i> Teams
                     </a>
@@ -25,18 +24,6 @@
                     </a>
                     </li>
                 </sec:ifAllGranted>
-                <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <sec:ifNotLoggedIn>

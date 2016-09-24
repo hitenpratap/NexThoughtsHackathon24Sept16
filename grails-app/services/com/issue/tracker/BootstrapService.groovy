@@ -4,12 +4,14 @@ import com.issue.tracker.Project.Project
 import com.issue.tracker.authentication.Role
 import com.issue.tracker.authentication.UserRole
 import com.issue.tracker.label.Label
+import com.issue.tracker.milestone.Milestone
 import com.issue.tracker.team.Team
 import com.issue.tracker.team.TeamCO
 import com.issue.tracker.team.TeamMember
 import com.issue.tracker.user.Admin
 import com.issue.tracker.user.Member
 import grails.transaction.Transactional
+import org.apache.commons.lang.RandomStringUtils
 
 @Transactional
 class BootstrapService {
@@ -28,12 +30,18 @@ class BootstrapService {
     }
 
     def createLabels(Project project) {
-        if (Label.count < 1) {
-            List<String> labels = ['Bug', 'Testing', 'Development', 'Tested', 'Minor', 'Major']
-            labels.each { label ->
-                println "**************creating Labels******${label}********"
-                AppUtil.save(new Label(name: label, project: project))
-            }
+        List<String> labels = ['Bug', 'Testing', 'Development', 'Tested', 'Minor', 'Major']
+        labels.each { label ->
+            println "**************creating Labels******${label}********"
+            AppUtil.save(new Label(name: label, project: project))
+        }
+    }
+
+    def createMilestones(Project project) {
+        List<String> milestones = ['October', '1 Week', 'November', 'Upcoming Week']
+        milestones.each { name ->
+            println "**************creating Labels******${name}********"
+            AppUtil.save(new Milestone(name: name, project: project, description: RandomStringUtils.randomAlphabetic(15)))
         }
     }
 
@@ -44,21 +52,20 @@ class BootstrapService {
                 Member member = new Member(tokens)
                 AppUtil.save(member)
                 UserRole.create(member, Role.findByAuthority("ROLE_MEMBER"))
-                createTeam(member)
                 createProjects(member)
+                createTeam(member)
             }
         }
     }
 
     def createProjects(Member member) {
-        if (Project.count < 1) {
-            List<String> projects = ['P2PLending', 'Fin360', 'PayTM', 'Amazon', 'DigitalIndia', 'SherKhan', 'Flipkart']
-            projects.each { name ->
-                println "************** creating projects ******${name}********"
-                Project project = new Project(name: name, member: member)
-                AppUtil.save(project)
-                createLabels(project)
-            }
+        List<String> projects = ['P2PLending', 'Fin360', 'PayTM', 'Amazon', 'DigitalIndia', 'SherKhan', 'Flipkart']
+        projects.each { name ->
+            println "************** creating projects ******${name}********"
+            Project project = new Project(name: name, owner: member)
+            AppUtil.save(project)
+            createLabels(project)
+            createMilestones(project)
         }
     }
 
