@@ -2,6 +2,8 @@ package com.issue.tracker
 
 import com.issue.tracker.authentication.Role
 import com.issue.tracker.authentication.UserRole
+import com.issue.tracker.team.Team
+import com.issue.tracker.user.Admin
 import com.issue.tracker.user.Member
 import grails.transaction.Transactional
 
@@ -11,6 +13,8 @@ class BootstrapService {
     def main() {
         createRoles()
         createMembers()
+        createAdmin()
+        createTeam()
     }
 
     public void createRoles() {
@@ -35,7 +39,23 @@ class BootstrapService {
         }
     }
 
+    def createAdmin() {
+        (0..4).each { num ->
+            if (Admin.count < 1) {
+                Admin admin = new Admin(num)
+                AppUtil.save(admin)
+                UserRole.create(admin, Role.findByAuthority("ROLE_ADMIN"))
+            }
+        }
+    }
+
     def createTeam() {
-        List<String> names = [""]
+        if (Team.count < 1) {
+            new File("${AppUtil.staticResourcesDirPath}/Team_Data.csv").eachCsvLine { tokens ->
+                log.info("***************   Creating Team with name  ====>>>>>>  ${tokens[0]}")
+                Team team = new Team(tokens)
+                AppUtil.save(team)
+            }
+        }
     }
 }
