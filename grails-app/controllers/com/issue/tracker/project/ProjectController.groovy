@@ -7,7 +7,7 @@ import grails.plugin.springsecurity.annotation.Secured
 @Secured(["ROLE_MEMBER"])
 class ProjectController {
 
-    def index() {
+    def index = {
         List<Project> projectList = Project.list()
         render view: 'index', model: [projectList: projectList]
     }
@@ -21,4 +21,16 @@ class ProjectController {
         AppUtil.save(project)
         redirect action: 'index'
     }
+
+    def view = {
+        Project project = Project.findByUuid(params.projectId)
+        if (project) {
+            render(view: '/project/view', model: [project: project])
+        } else {
+            flash.error = "Something went wrong. Please try again."
+            redirect(action: 'index')
+        }
+    }
+
+    def delete = {}
 }

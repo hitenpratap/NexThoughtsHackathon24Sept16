@@ -14,6 +14,7 @@ class Label {
     Enums.ObjectStatus objectStatus = Enums.ObjectStatus.RECENT
 
     static belongsTo = [project:Project]
+
     static constraints = {
         name nullable: false, blank: false
         uuid nullable: false, blank: false

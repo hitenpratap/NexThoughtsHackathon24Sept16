@@ -10,4 +10,9 @@ class HelperTagLib {
         out << render(template: '/common/renderFieldError', model: [bean: bean, field: field])
     }
 
+    def renderDateFormat = { attrs ->
+        Date date = attrs.date
+        out << date.format("MMM dd, yyyy")
+    }
+
 }

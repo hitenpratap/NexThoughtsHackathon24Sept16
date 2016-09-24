@@ -10,4 +10,8 @@ class Enums {
         RECENT, OLD
     }
 
+    public enum TaskStatus {
+        OPEN, CLOSED
+    }
+
 }

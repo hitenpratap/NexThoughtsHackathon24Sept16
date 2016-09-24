@@ -339,4 +339,276 @@
         </addColumn>
     </changeSet>
 
+    <changeSet author="hitenpratap (generated)" id="1474718952157-1">
+        <createTable tableName="comment">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="commentPK"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comment_test" type="longtext">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="document_id" type="bigint"/>
+            <column name="last_updated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="member_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="object_status" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="task_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uuid" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474718952157-2">
+        <createTable tableName="document">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="documentPK"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="content_type" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="object_status" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="path" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uuid" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474718952157-3">
+        <createTable tableName="project_member">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="project_membePK"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="member_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="object_status" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="project_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uuid" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474718952157-4">
+        <createTable tableName="project_team">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="project_teamPK"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="object_status" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="project_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="team_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uuid" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474718952157-5">
+        <createTable tableName="task">
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="taskPK"/>
+            </column>
+            <column name="version" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="assignee_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="longtext"/>
+            <column name="document_id" type="bigint"/>
+            <column name="label_id" type="bigint"/>
+            <column name="last_updated" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="milestone_id" type="bigint"/>
+            <column name="object_status" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="project_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="uuid" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="hitenpratap (generated)" id="1474718952157-6">
+        <addForeignKeyConstraint baseColumnNames="document_id" baseTableName="comment"
+                                 constraintName="FK_482ww55x00acscqmabkrpsena" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="document"
+                                 referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474718952157-7">
+        <addForeignKeyConstraint baseColumnNames="member_id" baseTableName="comment"
+                                 constraintName="FK_14fio2len8ouxyg2a1ixn2qhv" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id"
+                                 referencedTableName="project_member" referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474718952157-8">
+        <addForeignKeyConstraint baseColumnNames="task_id" baseTableName="comment"
+                                 constraintName="FK_2d9ern8bvaarimfayk9083iog" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="task"
+                                 referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474718952157-9">
+        <addForeignKeyConstraint baseColumnNames="member_id" baseTableName="project_member"
+                                 constraintName="FK_33xo12khbmo9pbdjdpxsbovep" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="user"
+                                 referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474718952157-10">
+        <addForeignKeyConstraint baseColumnNames="project_id" baseTableName="project_member"
+                                 constraintName="FK_c8fotdlbae78y2l7v7wq94jmx" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="project"
+                                 referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474718952157-11">
+        <addForeignKeyConstraint baseColumnNames="project_id" baseTableName="project_team"
+                                 constraintName="FK_sd9kq5y92vhlc8lt1163g60lm" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="project"
+                                 referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474718952157-12">
+        <addForeignKeyConstraint baseColumnNames="team_id" baseTableName="project_team"
+                                 constraintName="FK_eg2q5afujoig6j5gjwfswhvjm" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="team"
+                                 referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474718952157-13">
+        <addForeignKeyConstraint baseColumnNames="assignee_id" baseTableName="task"
+                                 constraintName="FK_rb8jsuwoimkias723h7dtdaa3" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id"
+                                 referencedTableName="project_member" referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474718952157-14">
+        <addForeignKeyConstraint baseColumnNames="document_id" baseTableName="task"
+                                 constraintName="FK_f2jro7xcxmptpmehsqf0p62h5" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="document"
+                                 referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474718952157-15">
+        <addForeignKeyConstraint baseColumnNames="label_id" baseTableName="task"
+                                 constraintName="FK_mkvlhgxasqr4327r32l9fd169" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="label"
+                                 referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474718952157-16">
+        <addForeignKeyConstraint baseColumnNames="milestone_id" baseTableName="task"
+                                 constraintName="FK_diefvkov2b0hcjbfgktqt61lf" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="milestone"
+                                 referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474718952157-17">
+        <addForeignKeyConstraint baseColumnNames="project_id" baseTableName="task"
+                                 constraintName="FK_b7i81l1tk1ph95xnhtoftyv53" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="project"
+                                 referencesUniqueColumn="false"/>
+    </changeSet>
+
+    <changeSet author="hitenpratap (generated)" id="1474721707431-1">
+        <addColumn tableName="comment">
+            <column name="comment_text" type="longtext">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474721707431-2">
+        <addColumn tableName="project_member">
+            <column name="access_level" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474721707431-3">
+        <addColumn tableName="project_member">
+            <column name="team_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474721707431-4">
+        <addColumn tableName="task">
+            <column name="status" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474721707431-5">
+        <dropNotNullConstraint columnDataType="bigint" columnName="assignee_id" tableName="task"/>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474721707431-7">
+        <createIndex indexName="FK_lsb4lwqxa6ngmv2f9k92n1dur" tableName="project_member">
+            <column name="team_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474721707431-8">
+        <dropColumn columnName="comment_test" tableName="comment"/>
+    </changeSet>
+    <changeSet author="hitenpratap (generated)" id="1474721707431-6">
+        <addForeignKeyConstraint baseColumnNames="team_id" baseTableName="project_member"
+                                 constraintName="FK_lsb4lwqxa6ngmv2f9k92n1dur" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="project_team"
+                                 referencesUniqueColumn="false"/>
+    </changeSet>
+
 </databaseChangeLog>
