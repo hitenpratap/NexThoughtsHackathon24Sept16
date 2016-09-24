@@ -9,7 +9,6 @@
 <body>
 <g:form controller="project" action="save">
     <input type="text" name="name" placeholder="name of project">
-
     <g:submitButton name="Submit"/>
 </g:form>
 </body>

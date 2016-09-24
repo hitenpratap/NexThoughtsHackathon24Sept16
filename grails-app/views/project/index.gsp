@@ -9,7 +9,7 @@
 <body>
 <h2>Project List
     <a href="${createLink(controller: 'project', action: 'create')}"
-       class="pull-right btn btn-primary">Create Project</a>
+       class="pull-right btn btn-primary">Create New Project</a>
 </h2>
 
 <div class="panel panel-primary">

@@ -12,7 +12,8 @@
 
 <div class="row">
     <div class="col-lg-4">
-        <a href="javascript:void(0)" class="btn btn-primary btn-block"><i class="fa fa-tasks"></i> Tasks</a>
+        <a href="${createLink(controller: 'task', action: 'list', params: [projectId: project?.uuid])}"
+           class="btn btn-primary btn-block"><i class="fa fa-tasks"></i> Tasks</a>
     </div>
 
     <div class="col-lg-4">

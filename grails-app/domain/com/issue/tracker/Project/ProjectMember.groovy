@@ -21,4 +21,10 @@ class ProjectMember {
         team nullable: true
     }
 
+    static transients = ['memberName']
+
+    String getMemberName() {
+        member.fullName
+    }
+
 }
