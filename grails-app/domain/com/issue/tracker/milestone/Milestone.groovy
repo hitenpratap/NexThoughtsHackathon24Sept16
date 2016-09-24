@@ -13,4 +13,11 @@ class Milestone {
         name nullable: false, blank: false
         uuid nullable: false, blank: false
     }
+
+    Milestone() {}
+
+    Milestone(MilestoneCO milestoneCO, Project project) {
+        this.name = milestoneCO.name
+        this.project = project
+    }
 }
