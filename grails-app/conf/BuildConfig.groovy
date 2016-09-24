@@ -75,6 +75,7 @@ grails.project.dependency.resolution = {
         runtime ":jquery-ui:1.10.4"
         compile "org.grails.plugins:spring-security-core:2.0.0"
         runtime ':twitter-bootstrap:3.3.4'
+        compile "org.grails.plugins:csv:0.3.1"
 
         // Uncomment these to enable additional asset-pipeline capabilities
         //compile ":sass-asset-pipeline:1.9.0"

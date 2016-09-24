@@ -19,4 +19,15 @@ class Member extends User {
         skypeName blank: true, nullable: true
     }
 
+    Member() {}
+
+    Member(def tokens) {
+        this.firstName = tokens[1]
+        this.lastName = tokens[2]
+        this.username = tokens[3]
+        this.phoneNumber = tokens[4]
+        this.skypeName = tokens[5]
+        this.password = "fin1928tech"
+    }
+
 }
