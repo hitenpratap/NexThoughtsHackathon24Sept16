@@ -19,4 +19,24 @@ class Project {
         name nullable: false, blank: false
         uuid nullable: false, blank: false
     }
+
+    static transients = ['taskCount', 'memberCount', 'teamCount']
+
+    Integer getTaskCount() {
+        tasks && !tasks.empty ? tasks.size() : 0
+    }
+
+    Integer getMemberCount() {
+        Integer count = 0
+        if (contributers && !contributers.empty) {
+            count = contributers.count { contributor ->
+                contributor.team == null
+            }
+        }
+        count
+    }
+
+    Integer getTeamCount() {
+        teams && !teams.empty ? teams.size() : 0
+    }
 }

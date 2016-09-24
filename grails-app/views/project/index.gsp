@@ -37,9 +37,9 @@
                     <td>${i + 1}</td>
                     <td>${project.dateCreated.format("MMM dd, yyyy")}</td>
                     <td>${project.name}</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>${project?.taskCount}</td>
+                    <td>${project?.memberCount}</td>
+                    <td>${project?.teamCount}</td>
                     <td><a href="${createLink(controller: 'project', action: 'view', params: [projectId: project.uuid])}"><i
                             class="fa fa-eye"></i> View</a>&nbsp;|&nbsp;<a
                             href="${createLink(controller: 'project', action: 'edit')}"><i
