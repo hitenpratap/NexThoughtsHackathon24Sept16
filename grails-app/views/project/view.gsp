@@ -16,11 +16,15 @@
     </div>
 
     <div class="col-lg-4">
-        <a href="javascript:void(0)" class="btn btn-success btn-block"><i class="fa fa-tags"></i> Labels</a>
+        <a href="${createLink(controller: 'label',action: 'index',params: [projectId:project.uuid])}" class="btn btn-success btn-block"><i class="fa fa-tags"></i> Labels</a>
     </div>
 
     <div class="col-lg-4">
         <a href="javascript:void(0)" class="btn btn-info btn-block"><i class="fa fa-calendar"></i> Milestones</a>
+    </div>
+
+    <div class="col-lg-4">
+        <a href="${createLink(controller: 'project',action: 'accessManagement',params: [projectId:project.uuid])}" class="btn btn-info btn-block"><i class="fa fa-calendar"></i> Grant Access</a>
     </div>
 </div>
 </body>

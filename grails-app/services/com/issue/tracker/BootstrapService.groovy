@@ -1,6 +1,7 @@
 package com.issue.tracker
 
 import com.issue.tracker.Project.Project
+import com.issue.tracker.Project.ProjectMember
 import com.issue.tracker.authentication.Role
 import com.issue.tracker.authentication.UserRole
 import com.issue.tracker.label.Label
@@ -19,6 +20,7 @@ class BootstrapService {
         createMembers()
         createAdmin()
         createProjects()
+        createProjectMembers()
     }
 
     public void createRoles() {
@@ -46,6 +48,20 @@ class BootstrapService {
                 AppUtil.save(member)
                 UserRole.create(member, Role.findByAuthority("ROLE_MEMBER"))
                 createTeam(member)
+            }
+        }
+    }
+
+    def createProjectMembers(){
+        if(ProjectMember.count<1){
+            Project.list().each {project->
+                [1,2,3,4,5].each {id->
+                    Member member = Member.get(id as Long)
+                    ProjectMember projectMember = new ProjectMember(member: member,project: project,accessLevel: Enums.MemberAccessLevel.READ)
+                    AppUtil.save(projectMember)
+                    log.info("***************   Creating Project Member====>>>>>>${member.firstName}  -> ${projectMember.uuid}")
+
+                }
             }
         }
     }
