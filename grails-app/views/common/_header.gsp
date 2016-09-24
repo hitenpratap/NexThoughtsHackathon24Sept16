@@ -30,6 +30,15 @@
                     </ul>
                 </li>
             </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <sec:ifNotLoggedIn>
+                <li><a href="${createLink(controller: 'login')}"><i class="fa fa-sign-in"></i> Login</a></li>
+            </sec:ifNotLoggedIn>
+            <sec:ifLoggedIn>
+                <li><a href="javascript:void(0)"><i class="fa fa-user"></i>&nbsp;<sec:username/></a></li>
+                <li><a href="${createLink(controller: 'logout')}"><i class="fa fa-sign-out"></i> Logout</a></li>
+            </sec:ifLoggedIn>
+        </ul>
         </div>
     </div>
 </nav>
