@@ -6,4 +6,8 @@ class Enums {
         ADMIN, READ, WRITE
     }
 
+    public enum ObjectStatus {
+        RECENT, OLD
+    }
+
 }
