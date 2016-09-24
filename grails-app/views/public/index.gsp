@@ -10,12 +10,12 @@
 <head>
     <meta name="layout" content="front"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Issue Tracker</title>
+    <title>Tracko</title>
 </head>
 
 <body>
 <div>
-    <h1>Welcome to Issue Tracker</h1>
+    <h1>Welcome to Tracko</h1>
 
 </div>
 </body>
