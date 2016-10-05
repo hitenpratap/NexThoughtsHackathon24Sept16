@@ -88,9 +88,6 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
-        sendGrid {
-            apiKey = "SG.6-CaQQXLR4-mG75TZmjwsA.tsmtdwXm7_EHddtOlQLq3aGSQbIZ7SOtOa58Bs7M2IU"
-        }
     }
     production {
         grails.logging.jul.usebridge = false
